@@ -1,0 +1,17 @@
+feature,type,missing_%,action
+company_type,cat,32.05,"NaN -> ""Unknown""; will encode (one-hot/ordinal)"
+company_size,cat,30.99,"NaN -> ""Unknown""; will encode (one-hot/ordinal)"
+last_new_job,cat,2.21,transformed to numeric feature; original can be dropped
+experience,cat,0.34,transformed to numeric feature; original can be dropped
+enrollee_id,num,0.0,"ID; kept, excluded from modeling"
+city,cat,0.0,"NaN -> ""Unknown""; will encode (one-hot/ordinal)"
+city_development_index,num,0.0,kept as is
+education_level,num,0.0,kept as is
+enrolled_university,cat,0.0,"NaN -> ""Unknown""; will encode (one-hot/ordinal)"
+relevent_experience,cat,0.0,"NaN -> ""Unknown""; will encode (one-hot/ordinal)"
+gender,cat,0.0,"NaN -> ""Unknown""; will encode (one-hot/ordinal)"
+major_discipline,cat,0.0,"NaN -> ""Unknown""; will encode (one-hot/ordinal)"
+training_hours,num,0.0,checked outliers; winsorized by IQR (optional)
+target,num,0.0,kept as is
+no_job_info,num,0.0,kept as is
+is_university_enrolled,num,0.0,engineered feature

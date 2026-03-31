@@ -1,0 +1,2 @@
+col,method,low,high,q1,q3,iqr,n_outliers,pct_outliers,action
+training_hours,IQR,-74.5,185.5,23.0,88.0,65.0,984,5.14,winsorize

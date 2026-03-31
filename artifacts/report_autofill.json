@@ -1,0 +1,139 @@
+{
+  "2_structure_table_path": "artifacts/structure_summary.csv",
+  "3_missing_top5": [
+    [
+      "company_type",
+      32.05
+    ],
+    [
+      "company_size",
+      30.99
+    ],
+    [
+      "last_new_job",
+      2.21
+    ],
+    [
+      "experience",
+      0.34
+    ]
+  ],
+  "3_rows_missing_gt_X": {
+    "X_pct": 30,
+    "rows_pct": 0.0
+  },
+  "3_decisions": {
+    "dropped_rows": "no",
+    "dropped_cols": "no",
+    "imputation": {
+      "categorical": "fillna(\"Unknown\")",
+      "experience_years": "median (9.00)",
+      "last_new_job_years": "-1 (Unknown)"
+    }
+  },
+  "4_outliers": {
+    "training_hours": {
+      "method": "IQR",
+      "low": -74.5,
+      "high": 185.5,
+      "q1": 23.0,
+      "q3": 88.0,
+      "iqr": 65.0,
+      "n_outliers": 984,
+      "pct_outliers": 5.14,
+      "action": "winsorize"
+    }
+  },
+  "5_encoding_plan": {
+    "nominal_onehot": [
+      "city",
+      "gender",
+      "relevent_experience",
+      "major_discipline",
+      "company_type"
+    ],
+    "ordinal": {
+      "education_level": [
+        "Primary School",
+        "High School",
+        "Graduate",
+        "Masters",
+        "Phd"
+      ],
+      "enrolled_university": [
+        "no_enrollment",
+        "Part time course",
+        "Full time course"
+      ],
+      "last_new_job": [
+        "never",
+        "1",
+        "2",
+        "3",
+        "4",
+        ">4"
+      ]
+    },
+    "dummy_trap": "drop_first=True",
+    "rare_categories": {
+      "city": {
+        "n_unique": 123,
+        "rare_count": 106,
+        "rare_examples": [
+          "city_23",
+          "city_65",
+          "city_36",
+          "city_173",
+          "city_83",
+          "city_50",
+          "city_162",
+          "city_46",
+          "city_116",
+          "city_138"
+        ],
+        "threshold_pct": 1.0
+      },
+      "company_type": {
+        "n_unique": 7,
+        "rare_count": 1,
+        "rare_examples": [
+          "Other"
+        ],
+        "threshold_pct": 1.0
+      },
+      "major_discipline": {
+        "n_unique": 7,
+        "rare_count": 0,
+        "rare_examples": [],
+        "threshold_pct": 1.0
+      }
+    }
+  },
+  "6_feature_engineering": [
+    {
+      "new_feature": "is_university_enrolled",
+      "type": "extract",
+      "from": "enrolled_university",
+      "logic": "1 if enrolled_university != no_enrollment else 0",
+      "why": "compact signal of current study status"
+    }
+  ],
+  "8_before_after": {
+    "rows": [
+      19158,
+      18735
+    ],
+    "cols": [
+      15,
+      161
+    ],
+    "nan_total": [
+      12566,
+      0
+    ],
+    "dropped_features": [
+      "enrollee_id (ID, excluded from modeling)"
+    ],
+    "notes": "Original 'experience'/'last_new_job' can be replaced by engineered numeric versions."
+  }
+}
