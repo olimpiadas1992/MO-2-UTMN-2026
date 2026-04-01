@@ -45,6 +45,31 @@
 - **[`report_autofill.json`](artifacts/report_autofill.json)** — отчёт о процедуре автозаполнения пропущенных значений.
 - **[`structure_summary.csv`](artifacts/structure_summary.csv)** — описание структуры исходного набора данных.
 
+### Описание признаков в X_prepared_sample.csv
+
+Подготовленный набор данных содержит следующие признаки:
+
+#### Числовые признаки:
+- **city_development_index** — индекс развития города
+- **experience** — опыт работы (в годах)
+- **last_new_job** — время с последней смены работы (в годах)
+- **training_hours** — количество часов обучения
+- **target** — целевая переменная (статус поиска работы: 1 — ищет работу, 0 — не ищет)
+
+#### Бинарные признаки:
+- **no_job_info** — отсутствие информации о текущей работе (1 — да, 0 — нет)
+- **is_university_enrolled** — зачисление в университет (1 — да, 0 — нет)
+- **relevent_experience_No relevent experience** — отсутствие релевантного опыта (True/False)
+
+#### Категориальные признаки (закодированы методом one-hot encoding):
+- **city_city_\*** — город проживания (более 100 уникальных городов)
+- **company_type_\*** — тип компании (Funded Startup, NGO, Other, Public Sector, Pvt Ltd, Unknown)
+- **company_size_\*** — размер компании (<10, 50-99, 100-500, 500-999, 1000-4999, 5000-9999, 10000+, Unknown)
+- **enrolled_university_\*** — статус зачисления в университет (Part time course, no_enrollment, not_stated)
+- **education_level_\*** — уровень образования (1-5)
+- **major_discipline_\*** — основная дисциплина (Business Degree, Humanities, No Major, Other, STEM, not_stated)
+- **gender_\*** — пол (Male, Other, not_stated)
+
 ### Практические работы
 
 - **[`00-Cross-Validation.ipynb`](00-Cross-Validation.ipynb)** — практическая работа по кросс-валидации моделей машинного обучения.
